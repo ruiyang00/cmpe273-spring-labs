@@ -17,13 +17,12 @@ class externalSort:
         self.disk = []
 
     def partition(self, arr, low, high):
-        i = (low-1)         # index of smaller element
-        pivot = arr[high]     # pivot
+        i = (low-1)         
+        pivot = arr[high]    
 
         for j in range(low, high):
 
             if arr[j] <= pivot:
-                # increment index of smaller element
                 i = i+1
                 arr[i], arr[j] = arr[j], arr[i]
 
@@ -61,22 +60,15 @@ class externalSort:
             tempFile.seek(0)
             self.disk.append(tempFile)
             tempBuffer = []
-            # print(type(self.disk[i]))
+
 
     def getDiskPath(self):
         cwd = os.getcwd()
         return cwd
 
-    # def initial2ndSort(slef, list1):
-    #     size = len(list1)-1
-    #     mid = size / 2
-    #     while mid >= 0:
-    #         self.heapify(list1, mid, l)
-    #         mid -= 1
 
     async def mergeSortedFiles(self, disk_path, total_files):
         tempbuffer = []
-        output_file = []
 
         for sortedFile in self.disk:
             num = int(sortedFile.readline().strip())
@@ -102,41 +94,12 @@ class externalSort:
             tempbuffer.append(heapNode(item, fileOfMinRemoved))
             tempbuffer.sort(key=lambda node: node.item)
 
-        # print(len(output_file))
-        # print(len(tempbuffer))
-
-        # for i in range(len(tempbuffer)):
-        #     print(tempbuffer[i].item)
-
     async def readFromDisk_2ndSort(self, file):
         file.readline().strip()
 
     async def wrtieToDisk_2ndSort(self, min):
         f = open(self.getDiskPath() + "/output/async_sorted.txt", "a")
         f.write(str(min)+"\n")
-
-    def createHeap(self, arr):
-        l = len(arr) - 1
-        mid = l // 2
-        while mid >= 0:
-            self.heapify(arr, mid, l)
-            mid -= 1
-
-    def heapify(self, arr, i, n):
-        left = 2 * i + 1
-        right = 2 * i + 2
-
-        if left < n and arr[left].item < arr[i].item:
-            smallest = left
-        else:
-            smallest = i
-
-        if right < n and arr[right].item < arr[smallest].item:
-            smallest = right
-
-        if i != smallest:
-            (arr[i], arr[smallest]) = (arr[smallest], arr[i])
-            self.heapify(arr, smallest, n)
 
 
 if __name__ == '__main__':

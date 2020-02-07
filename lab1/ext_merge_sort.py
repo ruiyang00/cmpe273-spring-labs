@@ -16,13 +16,11 @@ class externalSort:
         self.disk = []
 
     def partition(self, arr, low, high):
-        i = (low-1)         # index of smaller element
-        pivot = arr[high]     # pivot
+        i = (low-1)         
+        pivot = arr[high]     
 
         for j in range(low, high):
 
-            # If current element is smaller than or
-            # equal to pivot
             if arr[j] <= pivot:
                 # increment index of smaller element
                 i = i+1
@@ -101,23 +99,6 @@ class externalSort:
     def wrtieToDisk(self, min):
         f = open(self.getDiskPath() + "/output/sorted.txt", "a")
         f.write(str(min)+"\n")
-
-
-    def heapify(self, arr, i, n):
-        left = 2 * i + 1
-        right = 2 * i + 2
-
-        if left < n and arr[left].item < arr[i].item:
-            smallest = left
-        else:
-            smallest = i
-
-        if right < n and arr[right].item < arr[smallest].item:
-            smallest = right
-
-        if i != smallest:
-            (arr[i], arr[smallest]) = (arr[smallest], arr[i])
-            self.heapify(arr, smallest, n)
 
 
 if __name__ == '__main__':
