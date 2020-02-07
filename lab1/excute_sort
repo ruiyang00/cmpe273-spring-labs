@@ -5,7 +5,7 @@
 rm /Users/ruiyang/Documents/SJSU/Spring2020/cmpe273/cmpe273-spring20-labs/lab1/diskFiles/*
 rm /Users/ruiyang/Documents/SJSU/Spring2020/cmpe273/cmpe273-spring20-labs/lab1/output/*
 rm time.txt
-rm time_async.text
+rm time_async.txt
 (time python3 ext_merge_sort.py) >& time.txt
 (time python3 async_ext_merge_sort.py) >& time_async.txt
 git add -A
