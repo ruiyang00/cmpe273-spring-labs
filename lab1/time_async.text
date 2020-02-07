@@ -1,0 +1,14 @@
+<tempfile._TemporaryFileWrapper object at 0x110b5e520>
+<tempfile._TemporaryFileWrapper object at 0x110b5e700>
+<tempfile._TemporaryFileWrapper object at 0x110b5e8e0>
+<tempfile._TemporaryFileWrapper object at 0x110b5eac0>
+<tempfile._TemporaryFileWrapper object at 0x110b5eca0>
+<tempfile._TemporaryFileWrapper object at 0x110b5eee0>
+<tempfile._TemporaryFileWrapper object at 0x110b6d160>
+<tempfile._TemporaryFileWrapper object at 0x110b6d3a0>
+<tempfile._TemporaryFileWrapper object at 0x110b6d5e0>
+<tempfile._TemporaryFileWrapper object at 0x110b6d820>
+
+real	0m0.165s
+user	0m0.094s
+sys	0m0.040s
