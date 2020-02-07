@@ -22,8 +22,6 @@ class externalSort:
 
         for j in range(low, high):
 
-            # If current element is smaller than or
-            # equal to pivot
             if arr[j] <= pivot:
                 # increment index of smaller element
                 i = i+1
@@ -80,16 +78,12 @@ class externalSort:
         tempbuffer = []
         output_file = []
 
-
         for sortedFile in self.disk:
-            print(sortedFile)
             num = int(sortedFile.readline().strip())
             tempbuffer.append(heapNode(num, sortedFile))
 
-
         # sort the 10 size buffer
         tempbuffer.sort(key=lambda node: node.item)
-
 
         while True:
 
@@ -107,7 +101,6 @@ class externalSort:
                 item = int(item)
             tempbuffer.append(heapNode(item, fileOfMinRemoved))
             tempbuffer.sort(key=lambda node: node.item)
-
 
         # print(len(output_file))
         # print(len(tempbuffer))
