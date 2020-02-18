@@ -1,5 +1,5 @@
 #!/bin/bash
-# My first script
+#Script for cmpe273-lab1-externalSort
 
 
 rm /Users/ruiyang/Documents/SJSU/Spring2020/cmpe273/cmpe273-spring20-labs/lab1/diskFiles/*

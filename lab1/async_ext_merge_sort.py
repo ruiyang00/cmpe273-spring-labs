@@ -47,6 +47,8 @@ class externalSort:
         tempBuffer = []
 
         for i in range(total_files):
+
+        
             infile = open(disk_path+entiries[i], 'r')
             for line in infile:
                 tempBuffer.append(line)
@@ -60,7 +62,6 @@ class externalSort:
             tempFile.seek(0)
             self.disk.append(tempFile)
             tempBuffer = []
-
 
     def getDiskPath(self):
         cwd = os.getcwd()
