@@ -45,27 +45,34 @@ def get_student_info(id):
         return {"Error Message": "No such student id"}, 204
 
 
+@app.route('/classes/<id>', methods=['GET'])
+def get_class_info(id):
+
+    class_id = int(id)
+    if class_id in database['classes']:
+        return {"id": class_id, "name": database['classes'][class_id]['name'], "students": database['classes'][class_id]['students']}, 201
+    else:
+        return {"Error Message": "No such class id"}, 204
+
+
 @app.route('/classes', methods=['POST'])
 def create_class():
-
     class_name = request.json.get('name')
 
     class_id = 1122334
     temp_class = {
-        'id': class_id,
         "name": class_name,
         "students": []
     }
+    database['classes'][class_id] = temp_class
 
-    database["classes"].update(temp_class)
-    return {"id": class_id, "name": class_name, "students": database['classes']['students']}, 201
+    return {"id": class_id, "name": class_name, "students": database['classes'][class_id]['students']}, 201
 
 
 @app.route('/classes/<id>', methods=['PATCH'])
 def register_course(id):
-
     student_id = int(request.json.get('student_id'))
-    course_id = id
+    course_id = int(id)
 
     student_name = database["students"].get(student_id)
 
@@ -74,6 +81,7 @@ def register_course(id):
         "name": student_name
     }
 
-    database["classes"].get("students").append(temp_student)
+    database['classes'][course_id].get("students").append(temp_student)
+    print(database['classes'][course_id])
 
-    return {"id": course_id, "name": database['classes']['name'], "students": database['classes']['students']}, 201
+    return {"id": course_id, "name": database['classes'][course_id]['name'], "students": database['classes'][course_id]['students']}, 201
